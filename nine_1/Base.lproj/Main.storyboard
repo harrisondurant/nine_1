@@ -1,85 +1,173 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Main-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="nine_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="0" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0l-7S-7o6" userLabel="0">
+                                <frame key="frameInset" minX="16" minY="20" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="drumpad"/>
+                                <connections>
+                                    <action selector="padDown:" destination="9pv-A4-QxB" eventType="touchDown" id="tvg-Zi-PPp"/>
+                                    <action selector="padUp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Rd6-kD-nda"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wts-Hd-MUt" userLabel="1">
+                                <frame key="frameInset" minX="115" minY="20" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="drumpad"/>
+                                <connections>
+                                    <action selector="padDown:" destination="9pv-A4-QxB" eventType="touchDown" id="3hB-UR-hUc"/>
+                                    <action selector="padUp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="eFf-h7-qWP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="2" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFG-V4-cfJ" userLabel="2">
+                                <frame key="frameInset" minX="214" minY="20" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="drumpad"/>
+                                <connections>
+                                    <action selector="padDown:" destination="9pv-A4-QxB" eventType="touchDown" id="2uG-O4-AFi"/>
+                                    <action selector="padUp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="yCu-TN-DEU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="3" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1a-0e-zCw" userLabel="3">
+                                <frame key="frameInset" minX="16" minY="118" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="drumpad"/>
+                                <connections>
+                                    <action selector="padDown:" destination="9pv-A4-QxB" eventType="touchDown" id="cPY-ml-nst"/>
+                                    <action selector="padUp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="XZy-LG-ykI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="4" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otp-r6-bsS" userLabel="4">
+                                <frame key="frameInset" minX="115" minY="118" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="drumpad"/>
+                                <connections>
+                                    <action selector="padDown:" destination="9pv-A4-QxB" eventType="touchDown" id="Wce-yb-5IL"/>
+                                    <action selector="padUp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Ddm-RT-cEC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="5" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2S-ka-tYZ" userLabel="5">
+                                <frame key="frameInset" minX="214" minY="118" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="drumpad"/>
+                                <connections>
+                                    <action selector="padDown:" destination="9pv-A4-QxB" eventType="touchDown" id="TzT-jW-610"/>
+                                    <action selector="padUp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="9Aa-0M-kgX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="6" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAR-jz-h1u" userLabel="6">
+                                <frame key="frameInset" minX="16" minY="216" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="drumpad"/>
+                                <connections>
+                                    <action selector="padDown:" destination="9pv-A4-QxB" eventType="touchDown" id="aop-Gi-oGz"/>
+                                    <action selector="padUp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="44c-Pa-9RQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="7" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4u-He-tjb" userLabel="7">
+                                <frame key="frameInset" minX="115" minY="216" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="drumpad"/>
+                                <connections>
+                                    <action selector="padDown:" destination="9pv-A4-QxB" eventType="touchDown" id="J6w-oV-YUK"/>
+                                    <action selector="padUp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="K8A-KY-9V0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="8" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glV-z8-O8p" userLabel="8">
+                                <frame key="frameInset" minX="214" minY="216" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="drumpad"/>
+                                <connections>
+                                    <action selector="padDown:" destination="9pv-A4-QxB" eventType="touchDown" id="6kI-rL-xGh"/>
+                                    <action selector="padUp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="W8G-Kg-cRF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="8" symbolic="YES" id="cfb-er-3JN"/>
-                            <constraint firstItem="A5M-7J-77L" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="e1l-AV-tCB"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Main" image="pad" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="button0" destination="s0l-7S-7o6" id="vsj-Ep-ra8"/>
+                        <outlet property="button1" destination="wts-Hd-MUt" id="aSl-yn-bDr"/>
+                        <outlet property="button2" destination="UFG-V4-cfJ" id="nhF-Pl-F7I"/>
+                        <outlet property="button3" destination="U1a-0e-zCw" id="HCX-dO-fDe"/>
+                        <outlet property="button4" destination="otp-r6-bsS" id="wsD-TR-nkT"/>
+                        <outlet property="button5" destination="s2S-ka-tYZ" id="nTA-a1-lII"/>
+                        <outlet property="button6" destination="RAR-jz-h1u" id="PIb-0w-wSn"/>
+                        <outlet property="button7" destination="Y4u-He-tjb" id="kzg-oG-gJM"/>
+                        <outlet property="button8" destination="glV-z8-O8p" id="mHA-id-AaH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Second-->
+        <!--Sound Editor-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="nine_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="no sound selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
+                                <frame key="frameInset" minX="101" minY="276" width="119" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Sound Editor" image="sound" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="aLabel" destination="NDk-cv-Gan" id="fLS-LN-oVt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="360"/>
+            <point key="canvasLocation" x="750" y="383"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="CBW-lM-rJQ">
+            <objects>
+                <viewController id="oHk-or-Vfj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SGA-xK-YRr"/>
+                        <viewControllerLayoutGuide type="bottom" id="5wJ-n5-my1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MsO-A7-fVy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="menu" id="fr0-NX-GJp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="avW-Lu-Ylb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1391" y="59"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -94,6 +182,7 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="oHk-or-Vfj" kind="relationship" relationship="viewControllers" id="nga-o5-ymN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -102,7 +191,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="drumpad" width="250" height="250"/>
+        <image name="menu" width="30" height="30"/>
+        <image name="pad" width="30" height="30"/>
+        <image name="sound" width="30" height="30"/>
     </resources>
 </document>

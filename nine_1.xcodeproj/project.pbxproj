@@ -13,7 +13,34 @@
 		8176F26E1DECBEBA0057FF39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8176F26C1DECBEBA0057FF39 /* Main.storyboard */; };
 		8176F2701DECBEBA0057FF39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8176F26F1DECBEBA0057FF39 /* Assets.xcassets */; };
 		8176F2731DECBEBA0057FF39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8176F2711DECBEBA0057FF39 /* LaunchScreen.storyboard */; };
+		8176F27C1DECBEF30057FF39 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176F27A1DECBEF30057FF39 /* Sound.swift */; };
+		8176F27D1DECBEF30057FF39 /* SoundBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176F27B1DECBEF30057FF39 /* SoundBoard.swift */; };
+		8176F2831DECBF1D0057FF39 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8176F27E1DECBF020057FF39 /* AudioKit.framework */; };
+		8176F2841DECBF1D0057FF39 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8176F27E1DECBF020057FF39 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8176F2931DECC21C0057FF39 /* congo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F28A1DECC21C0057FF39 /* congo.wav */; };
+		8176F2941DECC21C0057FF39 /* shaker.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F28B1DECC21C0057FF39 /* shaker.wav */; };
+		8176F2951DECC21C0057FF39 /* weird.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F28C1DECC21C0057FF39 /* weird.wav */; };
+		8176F2961DECC21C0057FF39 /* clap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F28D1DECC21C0057FF39 /* clap.wav */; };
+		8176F2971DECC21C0057FF39 /* snare.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F28E1DECC21C0057FF39 /* snare.wav */; };
+		8176F2981DECC21C0057FF39 /* tom.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F28F1DECC21C0057FF39 /* tom.wav */; };
+		8176F2991DECC21C0057FF39 /* bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F2901DECC21C0057FF39 /* bell.wav */; };
+		8176F29A1DECC21C0057FF39 /* clic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F2911DECC21C0057FF39 /* clic.wav */; };
+		8176F29B1DECC21C0057FF39 /* dirtykick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F2921DECC21C0057FF39 /* dirtykick.wav */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8176F2851DECBF1D0057FF39 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8176F2841DECBF1D0057FF39 /* AudioKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8176F2631DECBEBA0057FF39 /* nine_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nine_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +51,18 @@
 		8176F26F1DECBEBA0057FF39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8176F2721DECBEBA0057FF39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8176F2741DECBEBA0057FF39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8176F27A1DECBEF30057FF39 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		8176F27B1DECBEF30057FF39 /* SoundBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundBoard.swift; sourceTree = "<group>"; };
+		8176F27E1DECBF020057FF39 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		8176F28A1DECC21C0057FF39 /* congo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = congo.wav; sourceTree = "<group>"; };
+		8176F28B1DECC21C0057FF39 /* shaker.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shaker.wav; sourceTree = "<group>"; };
+		8176F28C1DECC21C0057FF39 /* weird.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = weird.wav; sourceTree = "<group>"; };
+		8176F28D1DECC21C0057FF39 /* clap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clap.wav; sourceTree = "<group>"; };
+		8176F28E1DECC21C0057FF39 /* snare.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = snare.wav; sourceTree = "<group>"; };
+		8176F28F1DECC21C0057FF39 /* tom.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tom.wav; sourceTree = "<group>"; };
+		8176F2901DECC21C0057FF39 /* bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bell.wav; sourceTree = "<group>"; };
+		8176F2911DECC21C0057FF39 /* clic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clic.wav; sourceTree = "<group>"; };
+		8176F2921DECC21C0057FF39 /* dirtykick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dirtykick.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8176F2831DECBF1D0057FF39 /* AudioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +80,8 @@
 		8176F25A1DECBEBA0057FF39 = {
 			isa = PBXGroup;
 			children = (
+				8176F2891DECC20C0057FF39 /* Resources */,
+				8176F27E1DECBF020057FF39 /* AudioKit.framework */,
 				8176F2651DECBEBA0057FF39 /* nine_1 */,
 				8176F2641DECBEBA0057FF39 /* Products */,
 			);
@@ -59,12 +101,30 @@
 				8176F2661DECBEBA0057FF39 /* AppDelegate.swift */,
 				8176F2681DECBEBA0057FF39 /* FirstViewController.swift */,
 				8176F26A1DECBEBA0057FF39 /* SecondViewController.swift */,
+				8176F27A1DECBEF30057FF39 /* Sound.swift */,
+				8176F27B1DECBEF30057FF39 /* SoundBoard.swift */,
 				8176F26C1DECBEBA0057FF39 /* Main.storyboard */,
 				8176F26F1DECBEBA0057FF39 /* Assets.xcassets */,
 				8176F2711DECBEBA0057FF39 /* LaunchScreen.storyboard */,
 				8176F2741DECBEBA0057FF39 /* Info.plist */,
 			);
 			path = nine_1;
+			sourceTree = "<group>";
+		};
+		8176F2891DECC20C0057FF39 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8176F28A1DECC21C0057FF39 /* congo.wav */,
+				8176F28B1DECC21C0057FF39 /* shaker.wav */,
+				8176F28C1DECC21C0057FF39 /* weird.wav */,
+				8176F28D1DECC21C0057FF39 /* clap.wav */,
+				8176F28E1DECC21C0057FF39 /* snare.wav */,
+				8176F28F1DECC21C0057FF39 /* tom.wav */,
+				8176F2901DECC21C0057FF39 /* bell.wav */,
+				8176F2911DECC21C0057FF39 /* clic.wav */,
+				8176F2921DECC21C0057FF39 /* dirtykick.wav */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +137,7 @@
 				8176F25F1DECBEBA0057FF39 /* Sources */,
 				8176F2601DECBEBA0057FF39 /* Frameworks */,
 				8176F2611DECBEBA0057FF39 /* Resources */,
+				8176F2851DECBF1D0057FF39 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,9 +187,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8176F2941DECC21C0057FF39 /* shaker.wav in Resources */,
 				8176F2731DECBEBA0057FF39 /* LaunchScreen.storyboard in Resources */,
+				8176F2951DECC21C0057FF39 /* weird.wav in Resources */,
+				8176F2981DECC21C0057FF39 /* tom.wav in Resources */,
 				8176F2701DECBEBA0057FF39 /* Assets.xcassets in Resources */,
+				8176F2991DECC21C0057FF39 /* bell.wav in Resources */,
+				8176F2961DECC21C0057FF39 /* clap.wav in Resources */,
 				8176F26E1DECBEBA0057FF39 /* Main.storyboard in Resources */,
+				8176F2971DECC21C0057FF39 /* snare.wav in Resources */,
+				8176F29A1DECC21C0057FF39 /* clic.wav in Resources */,
+				8176F2931DECC21C0057FF39 /* congo.wav in Resources */,
+				8176F29B1DECC21C0057FF39 /* dirtykick.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +212,8 @@
 				8176F26B1DECBEBA0057FF39 /* SecondViewController.swift in Sources */,
 				8176F2671DECBEBA0057FF39 /* AppDelegate.swift in Sources */,
 				8176F2691DECBEBA0057FF39 /* FirstViewController.swift in Sources */,
+				8176F27D1DECBEF30057FF39 /* SoundBoard.swift in Sources */,
+				8176F27C1DECBEF30057FF39 /* Sound.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +336,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = /Users/hdurant2/Desktop/nine_1/;
 				INFOPLIST_FILE = nine_1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.elon.cs.nine-1";
@@ -276,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = /Users/hdurant2/Desktop/nine_1/;
 				INFOPLIST_FILE = nine_1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.elon.cs.nine-1";
