@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -119,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
         </scene>
-        <!--Sound Editor-->
+        <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="nine_1" customModuleProvider="target" sceneMemberID="viewController">
@@ -131,24 +132,106 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="no sound selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <frame key="frameInset" minX="101" minY="276" width="119" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no sound selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="116" id="ANj-RH-ulO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xif-Hy-bRv">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xOc-Ce-LzI"/>
+                                </constraints>
+                                <state key="normal" title="change sound"/>
+                                <connections>
+                                    <segue destination="DM8-FW-JRw" kind="show" identifier="changeSound" id="hhS-cX-brf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="some label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ni-bx-GnH" userLabel="some label">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="another label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cQ-jj-Ws7" userLabel="another label">
+                                <accessibility key="accessibilityConfiguration" label="another label"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="atp-o5-VKR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0ni-bx-GnH" firstAttribute="top" secondItem="4cQ-jj-Ws7" secondAttribute="bottom" constant="8" symbolic="YES" id="2WR-AQ-l1p"/>
+                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="45a-Jz-BBe"/>
+                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="trailing" secondItem="0ni-bx-GnH" secondAttribute="trailing" id="951-RK-tQu"/>
+                            <constraint firstItem="Xif-Hy-bRv" firstAttribute="leading" secondItem="4cQ-jj-Ws7" secondAttribute="leading" id="9ya-Ti-1u0"/>
+                            <constraint firstItem="NDk-cv-Gan" firstAttribute="trailing" secondItem="Xif-Hy-bRv" secondAttribute="trailing" id="BN1-OP-9g4"/>
+                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="top" secondItem="Xif-Hy-bRv" secondAttribute="bottom" constant="8" symbolic="YES" id="GkW-vI-T01"/>
+                            <constraint firstItem="NDk-cv-Gan" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="HH1-gg-ZRt"/>
+                            <constraint firstItem="NDk-cv-Gan" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="Ht5-pe-S95"/>
+                            <constraint firstItem="Xif-Hy-bRv" firstAttribute="trailing" secondItem="4cQ-jj-Ws7" secondAttribute="trailing" id="VeA-SR-dR3"/>
+                            <constraint firstItem="NDk-cv-Gan" firstAttribute="leading" secondItem="Xif-Hy-bRv" secondAttribute="leading" id="oU6-jr-e9g"/>
+                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="leading" secondItem="0ni-bx-GnH" secondAttribute="leading" id="u8L-sK-Uh6"/>
+                            <constraint firstItem="0ni-bx-GnH" firstAttribute="bottom" secondItem="Djb-ko-YwX" secondAttribute="top" id="ueS-3T-DMB"/>
+                            <constraint firstItem="Xif-Hy-bRv" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="8" symbolic="YES" id="x48-2s-KWD"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sound Editor" image="sound" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" id="MPF-uT-K3K"/>
                     <connections>
                         <outlet property="aLabel" destination="NDk-cv-Gan" id="fLS-LN-oVt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="383"/>
+            <point key="canvasLocation" x="2058.75" y="0.0"/>
+        </scene>
+        <!--SoundList-->
+        <scene sceneID="maA-kX-rTG">
+            <objects>
+                <viewController id="DM8-FW-JRw" userLabel="SoundList" customClass="SoundListView" customModule="nine_1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p4E-H5-aV6"/>
+                        <viewControllerLayoutGuide type="bottom" id="fPs-82-IGb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tgu-d9-txd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Is2-th-bLd" userLabel="paneStack">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0D-Nw-nRk" userLabel="pane">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebF-RC-eJq" userLabel="pane2">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ebF-RC-eJq" firstAttribute="width" secondItem="C0D-Nw-nRk" secondAttribute="width" id="PrJ-eD-w8H"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Is2-th-bLd" firstAttribute="top" secondItem="p4E-H5-aV6" secondAttribute="bottom" id="3TK-0T-K9U"/>
+                            <constraint firstItem="Is2-th-bLd" firstAttribute="leading" secondItem="tgu-d9-txd" secondAttribute="leading" id="Iu5-f1-HQk"/>
+                            <constraint firstAttribute="trailing" secondItem="Is2-th-bLd" secondAttribute="trailing" id="OUj-u5-079"/>
+                            <constraint firstItem="fPs-82-IGb" firstAttribute="top" secondItem="Is2-th-bLd" secondAttribute="bottom" id="xYf-O7-MHJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pane" destination="C0D-Nw-nRk" id="Ibs-ir-jJX"/>
+                        <outlet property="pane2" destination="ebF-RC-eJq" id="kMK-dE-51n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vd4-Ms-y5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2880" y="0.0"/>
         </scene>
         <!--Settings-->
         <scene sceneID="CBW-lM-rJQ">
@@ -167,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avW-Lu-Ylb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1391" y="59"/>
+            <point key="canvasLocation" x="0.0" y="729"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -181,13 +264,32 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="IFF-qo-OZc" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="oHk-or-Vfj" kind="relationship" relationship="viewControllers" id="nga-o5-ymN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Sound Editor-->
+        <scene sceneID="jVK-Hj-L1H">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IFF-qo-OZc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Sound Editor" image="sound" id="cPa-gy-q4n"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nAj-dl-VaT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="FHb-gN-pCK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogK-lx-IJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1419.375" y="0.0"/>
         </scene>
     </scenes>
     <resources>

@@ -14,6 +14,7 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var aLabel: UILabel!
     
     var soundBoard: SoundBoard!
+    var soundName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class SecondViewController: UIViewController {
         let idx = soundBoard.selectedIdx
         if(idx >= 0) {
             aLabel.text = "Current Sound: \(idx)"
+            soundName = "Sound \(idx)"
         } else {
             aLabel.text = "no sound selected"
         }
@@ -35,6 +37,17 @@ class SecondViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "changeSound") {
+            
+            print("We made it to changeSound")
+            
+            let dest = segue.destination as! SoundListView
+            dest.selectedSound = soundName
+            
+        }
     }
 
 

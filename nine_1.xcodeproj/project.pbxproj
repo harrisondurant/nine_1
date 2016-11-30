@@ -26,6 +26,7 @@
 		8176F2991DECC21C0057FF39 /* bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F2901DECC21C0057FF39 /* bell.wav */; };
 		8176F29A1DECC21C0057FF39 /* clic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F2911DECC21C0057FF39 /* clic.wav */; };
 		8176F29B1DECC21C0057FF39 /* dirtykick.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8176F2921DECC21C0057FF39 /* dirtykick.wav */; };
+		81C58FC91DEF5549007C4C57 /* SoundListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C58FC81DEF5549007C4C57 /* SoundListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +64,7 @@
 		8176F2901DECC21C0057FF39 /* bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bell.wav; sourceTree = "<group>"; };
 		8176F2911DECC21C0057FF39 /* clic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clic.wav; sourceTree = "<group>"; };
 		8176F2921DECC21C0057FF39 /* dirtykick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dirtykick.wav; sourceTree = "<group>"; };
+		81C58FC81DEF5549007C4C57 /* SoundListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				8176F26F1DECBEBA0057FF39 /* Assets.xcassets */,
 				8176F2711DECBEBA0057FF39 /* LaunchScreen.storyboard */,
 				8176F2741DECBEBA0057FF39 /* Info.plist */,
+				81C58FC81DEF5549007C4C57 /* SoundListView.swift */,
 			);
 			path = nine_1;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			files = (
 				8176F26B1DECBEBA0057FF39 /* SecondViewController.swift in Sources */,
 				8176F2671DECBEBA0057FF39 /* AppDelegate.swift in Sources */,
+				81C58FC91DEF5549007C4C57 /* SoundListView.swift in Sources */,
 				8176F2691DECBEBA0057FF39 /* FirstViewController.swift in Sources */,
 				8176F27D1DECBEF30057FF39 /* SoundBoard.swift in Sources */,
 				8176F27C1DECBEF30057FF39 /* Sound.swift in Sources */,
@@ -377,6 +381,7 @@
 				8176F2791DECBEBA0057FF39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
