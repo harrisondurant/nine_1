@@ -52,12 +52,16 @@ class SoundBoard: AKMixer {
         return instance
     }
     
-    static func changeSound(soundIdx: Int) {
+    static func updateSounds(soundIdx: Int) -> SoundBoard {
+        
+        //let fileName = instance.soundList[soundIdx]
+        //instance.pads[instance.selectedIdx].replace(fileName,soundIdx)
         
         var new_IDs = instance.getPads()
         new_IDs[instance.selectedIdx] = soundIdx
         
         instance = SoundBoard(fileIDs: new_IDs, startIndex: instance.selectedIdx)
+        return instance
         
 //        let soundName = soundList[selectedSound.soundListIndex]
 //        let newSoundName = soundList[soundIdx]
@@ -73,6 +77,14 @@ class SoundBoard: AKMixer {
 //            print("Error loading sound file")
 //        }
         
+    }
+    
+    static func updateFX(rate: Double, pan: Double) -> SoundBoard {
+        instance = SoundBoard(fileIDs:
+            instance.getPads(), startIndex: instance.selectedIdx)
+        instance.selectedSound.output.rate = rate
+        instance.selectedSound.input.pan = pan
+        return instance
     }
     
     static func play(_ soundID: Int) {
@@ -94,5 +106,17 @@ class SoundBoard: AKMixer {
             idxs.append(sound.soundListIndex)
         }
         return idxs
+    }
+    
+    static func getPlayback() -> Double {
+        return instance.selectedSound.output.rate
+    }
+    
+    static func getPan() -> Double {
+        return instance.selectedSound.input.pan
+    }
+    
+    static func getSoundName() -> String {
+        return instance.selectedSound.name
     }
 }

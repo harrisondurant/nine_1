@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -132,47 +131,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no sound selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="116" id="ANj-RH-ulO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="some label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ni-bx-GnH" userLabel="some label">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="another label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cQ-jj-Ws7" userLabel="another label">
-                                <accessibility key="accessibilityConfiguration" label="another label"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Wfd-XQ-mzQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RO0-A1-P1g">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no sound selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Hjg-e2-tg9">
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.25" maxValue="1.75" translatesAutoresizingMaskIntoConstraints="NO" id="j09-4O-U4l" userLabel="Playback" customClass="AKPropertySlider" customModule="AudioKit">
+                                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="property" value="Playback Rate"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="sliderColor">
+                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="minimum">
+                                                        <real key="value" value="0.25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maximum">
+                                                        <real key="value" value="1.75"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.25" maxValue="1.75" translatesAutoresizingMaskIntoConstraints="NO" id="3Bd-5d-ack" userLabel="Pan" customClass="AKPropertySlider" customModule="AudioKit">
+                                                <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="property" value="Pan"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="sliderColor">
+                                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <integer key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="minimum">
+                                                        <integer key="value" value="-1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="maximum">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </slider>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="45a-Jz-BBe"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="HH1-gg-ZRt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="Ht5-pe-S95"/>
-                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="trailing" secondItem="0ni-bx-GnH" secondAttribute="trailing" id="LTC-qE-69P"/>
-                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="leading" secondItem="0ni-bx-GnH" secondAttribute="leading" id="Rzp-Ai-cd0"/>
-                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="trailing" secondItem="NDk-cv-Gan" secondAttribute="trailing" id="Yrc-QA-p0g"/>
-                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="90" id="dPc-c3-bfu"/>
-                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="leading" secondItem="NDk-cv-Gan" secondAttribute="leading" id="fZ2-Zo-eCP"/>
-                            <constraint firstItem="0ni-bx-GnH" firstAttribute="top" secondItem="4cQ-jj-Ws7" secondAttribute="bottom" constant="8" symbolic="YES" id="ia7-Vh-mKQ"/>
-                            <constraint firstItem="0ni-bx-GnH" firstAttribute="bottom" secondItem="Djb-ko-YwX" secondAttribute="top" id="ueS-3T-DMB"/>
+                            <constraint firstItem="RO0-A1-P1g" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="1KX-hB-goL"/>
+                            <constraint firstAttribute="trailing" secondItem="RO0-A1-P1g" secondAttribute="trailing" id="CkZ-g1-bgD"/>
+                            <constraint firstItem="RO0-A1-P1g" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="XTS-MD-X5V"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="RO0-A1-P1g" secondAttribute="bottom" id="w4U-qN-mXA"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sound Editor" image="wave" id="1sT-NX-Qmj"/>
                     <navigationItem key="navigationItem" id="MPF-uT-K3K"/>
                     <connections>
                         <outlet property="aLabel" destination="NDk-cv-Gan" id="fLS-LN-oVt"/>
+                        <outlet property="panSlider" destination="3Bd-5d-ack" id="FSF-sU-Cm9"/>
+                        <outlet property="playbackSlider" destination="j09-4O-U4l" id="PDp-t4-A1X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

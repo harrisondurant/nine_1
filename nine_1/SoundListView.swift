@@ -15,6 +15,7 @@ class SoundListView: UIViewController {
     var loaded = false
     
     var soundBoard: SoundBoard!
+    var newSoundIdx: Int = -1
     
     var x: CGFloat = 0.0
     var offsetY: CGFloat = 0.0
@@ -37,7 +38,12 @@ class SoundListView: UIViewController {
         }
         updateList(soundBoard.selectedSound.soundListIndex)
     }
-
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        AudioKit.output = SoundBoard.updateSounds(soundIdx: newSoundIdx)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -87,9 +93,8 @@ class SoundListView: UIViewController {
     }
     
     func selectSound(_ soundButton: UIButton) {
-        let idx = Int(soundButton.restorationIdentifier!)!
-        SoundBoard.changeSound(soundIdx: idx)
-        updateList(idx)
+        newSoundIdx = Int(soundButton.restorationIdentifier!)!
+        updateList(newSoundIdx)
     }
 
 }

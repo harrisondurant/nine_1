@@ -13,25 +13,28 @@ class SecondViewController: UIViewController {
 
     @IBOutlet weak var aLabel: UILabel!
     
+    @IBOutlet weak var playbackSlider: AKPropertySlider!
+    @IBOutlet weak var panSlider: AKPropertySlider!
+    
     var soundBoard: SoundBoard!
-    var soundName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        soundBoard = SoundBoard.getInstance()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let idx = soundBoard.selectedIdx!
-        if(idx >= 0) {
-            let currSound = soundBoard.selectedSound!
-            aLabel.text = "Current Sound: \(currSound.name)"
-            soundName = "Sound \(idx)"
-        } else {
-            aLabel.text = "no sound selected"
-        }
+        playbackSlider.value = SoundBoard.getPlayback()
+        panSlider.value = SoundBoard.getPan()
+        
+        aLabel.text = "Current Sound: \(SoundBoard.getSoundName())"
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        AudioKit.output = SoundBoard.updateFX(rate: playbackSlider.value,
+                                            pan: panSlider.value)
     }
     
     override func didReceiveMemoryWarning() {

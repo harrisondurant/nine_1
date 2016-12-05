@@ -40,11 +40,12 @@ class FirstViewController: UIViewController {
                    button3,button4,button5,
                    button6,button7,button8]
         
+        updateImages(selectedIdx: 6) //default start pad
+        AudioKit.output = SoundBoard.getInstance()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        AudioKit.output = SoundBoard.getInstance()
         AudioKit.start()
     }
     
@@ -78,9 +79,6 @@ class FirstViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("HEY")
-    }
 
 //    func adjustDelayTime(_ time: Double) {
 //        delay?.time = Double(time)
