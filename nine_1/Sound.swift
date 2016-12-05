@@ -10,11 +10,15 @@ import AudioKit
 
 class Sound: AKAudioPlayer {
     
+    var name: String = ""
+    var soundListIndex: Int = -1
+    var canTrigger: Bool = true
+    
     init(file audioFile: AKAudioFile) throws {
         try super.init(file: audioFile)
     }
     
-    convenience init(_ fileName: String) throws{
+    convenience init(_ fileName: String, _ idx: Int) throws {
         var sound: AKAudioFile!
         do {
             try sound = AKAudioFile(readFileName: fileName)
@@ -22,5 +26,19 @@ class Sound: AKAudioPlayer {
             print("Exception occurred")
         }
         try self.init(file: sound)
+        self.name = fileName
+        self.soundListIndex = idx
+    }
+    
+    func playSound() {
+        if(self.isPlaying) {
+            self.stop()
+        }
+        self.canTrigger = false
+        self.play()
+    }
+    
+    func stopSound() {
+        self.canTrigger = true
     }
 }

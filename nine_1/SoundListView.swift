@@ -7,28 +7,35 @@
 //
 
 import UIKit
+import AudioKit
 
 class SoundListView: UIViewController {
 
-    @IBOutlet weak var pane: UIView!
-    @IBOutlet weak var pane2: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    var loaded = false
     
-    var selectedSound = ""
-    var numSounds = 36
+    var soundBoard: SoundBoard!
     
     var x: CGFloat = 0.0
     var offsetY: CGFloat = 0.0
+    let padding: CGFloat = 5.0
     var w: CGFloat = 0.0
-    var h: CGFloat = 0.0
+    var h: CGFloat = 30.0
+    
+    var buttons: [UIButton] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        soundBoard = SoundBoard.getInstance()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("at sound list view, selected sound = \(selectedSound)")
-        setupSoundList()
+        if(!loaded) {
+            setupSoundList()
+            loaded = true
+        }
+        updateList(soundBoard.selectedSound.soundListIndex)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,67 +43,53 @@ class SoundListView: UIViewController {
     }
     
     func setupSoundList() {
-        w = pane.frame.width
-        x = pane.frame.minX
-        h = pane.frame.height / CGFloat(numSounds/2)
         
-        offsetY = 0
-        for i in 1...numSounds/2 {
-            let button = UIButton(frame: CGRect(x: 0.0, y: offsetY, width: w, height: h))
-            button.titleLabel?.textAlignment = .center
-            button.setTitleColor(.black, for: .normal)
-            button.setTitle("Sound \(i)", for: .normal)
-            pane.addSubview(button)
-            offsetY += h
-        }
+        let soundList = soundBoard.soundList
+        let numSounds = soundList.count
         
-        offsetY = 0
-        for j in numSounds/2+1...numSounds {
-            let button = UIButton(frame: CGRect(x: 0.0, y: offsetY, width: w, height: h))
-            button.titleLabel?.textAlignment = .center
-            button.setTitleColor(.black, for: .normal)
-            button.setTitle("Sound \(j)", for: .normal)
-            pane2.addSubview(button)
-            offsetY += h
-
+        scrollView.contentInset = UIEdgeInsets(top: 5.0, left: 0.0, bottom: 5.0, right: 0.0)
+        scrollView.contentSize = CGSize(width: scrollView.frame.width,
+                                        height: (h+padding)*CGFloat(numSounds))
+        
+        w = scrollView.frame.width - 2*padding
+        x = scrollView.frame.minX + padding
+        
+        offsetY = 0.0
+        for i in 0..<numSounds {
+            let button = UIButton(type: .roundedRect)
+            button.frame = CGRect(x: x, y: offsetY, width: w, height: h)
+            
+            button.layer.cornerRadius = 5
+            button.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 1.0, alpha: 0.3)
+            button.tintColor =  UIColor.black
+            
+            button.titleLabel!.textAlignment = .left
+            button.setTitle(soundList[i], for: .normal)
+            
+            button.addTarget(self, action: #selector(SoundListView.selectSound(_:)), for: .touchUpInside)
+            button.restorationIdentifier = "\(i)"
+            buttons.append(button)
+            scrollView.addSubview(button)
+            
+            offsetY += h + padding
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
-/*
- func setupSoundList() {
- w = pane.frame.width
- x = pane.frame.minX
- h = pane.frame.height / CGFloat(numSounds/2)
- 
- offsetY = 0
- for i in 1...numSounds/2 {
- let button = UIButton(type: .roundedRect)
- button.frame =
- let label = UILabel(frame: CGRect(x: 0.0, y: offsetY, width: w, height: h))
- label.textAlignment = .center
- label.text = "Sound \(i)"
- pane.addSubview(label)
- offsetY += h
- }
- 
- offsetY = 0
- for j in numSounds/2+1...numSounds {
- let label = UILabel(frame: CGRect(x: 0.0, y: offsetY, width: w, height: h))
- label.textAlignment = .center
- label.text = "Sound \(j)"
- pane2.addSubview(label)
- offsetY += h
- }
-*/
+    func updateList(_ idx: Int) {
+        for button in buttons {
+            let button_id = Int(button.restorationIdentifier!)!
+            if(button_id == idx) {
+                button.tintColor = UIColor.white
+            } else {
+                button.tintColor = UIColor.black
+            }
+        }
+    }
+    
+    func selectSound(_ soundButton: UIButton) {
+        let idx = Int(soundButton.restorationIdentifier!)!
+        SoundBoard.changeSound(soundIdx: idx)
+        updateList(idx)
+    }
 
 }

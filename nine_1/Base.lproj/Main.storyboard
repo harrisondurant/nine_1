@@ -10,7 +10,7 @@
         <!--Main-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="nine_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Main" id="9pv-A4-QxB" customClass="FirstViewController" customModule="nine_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -118,12 +118,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-320"/>
+            <point key="canvasLocation" x="810" y="-678"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Sound Editor-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="nine_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Sound Editor" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="nine_1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -140,15 +140,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xif-Hy-bRv">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="xOc-Ce-LzI"/>
-                                </constraints>
-                                <state key="normal" title="change sound"/>
-                                <connections>
-                                    <segue destination="DM8-FW-JRw" kind="show" identifier="changeSound" id="hhS-cX-brf"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="some label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ni-bx-GnH" userLabel="some label">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -157,7 +148,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="another label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cQ-jj-Ws7" userLabel="another label">
                                 <accessibility key="accessibilityConfiguration" label="another label"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="atp-o5-VKR"/>
+                                    <constraint firstAttribute="height" constant="45" id="Wfd-XQ-mzQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -166,21 +157,19 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0ni-bx-GnH" firstAttribute="top" secondItem="4cQ-jj-Ws7" secondAttribute="bottom" constant="8" symbolic="YES" id="2WR-AQ-l1p"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="8" symbolic="YES" id="45a-Jz-BBe"/>
-                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="trailing" secondItem="0ni-bx-GnH" secondAttribute="trailing" id="951-RK-tQu"/>
-                            <constraint firstItem="Xif-Hy-bRv" firstAttribute="leading" secondItem="4cQ-jj-Ws7" secondAttribute="leading" id="9ya-Ti-1u0"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="trailing" secondItem="Xif-Hy-bRv" secondAttribute="trailing" id="BN1-OP-9g4"/>
-                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="top" secondItem="Xif-Hy-bRv" secondAttribute="bottom" constant="8" symbolic="YES" id="GkW-vI-T01"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="HH1-gg-ZRt"/>
                             <constraint firstItem="NDk-cv-Gan" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="Ht5-pe-S95"/>
-                            <constraint firstItem="Xif-Hy-bRv" firstAttribute="trailing" secondItem="4cQ-jj-Ws7" secondAttribute="trailing" id="VeA-SR-dR3"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="leading" secondItem="Xif-Hy-bRv" secondAttribute="leading" id="oU6-jr-e9g"/>
-                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="leading" secondItem="0ni-bx-GnH" secondAttribute="leading" id="u8L-sK-Uh6"/>
+                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="trailing" secondItem="0ni-bx-GnH" secondAttribute="trailing" id="LTC-qE-69P"/>
+                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="leading" secondItem="0ni-bx-GnH" secondAttribute="leading" id="Rzp-Ai-cd0"/>
+                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="trailing" secondItem="NDk-cv-Gan" secondAttribute="trailing" id="Yrc-QA-p0g"/>
+                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="90" id="dPc-c3-bfu"/>
+                            <constraint firstItem="4cQ-jj-Ws7" firstAttribute="leading" secondItem="NDk-cv-Gan" secondAttribute="leading" id="fZ2-Zo-eCP"/>
+                            <constraint firstItem="0ni-bx-GnH" firstAttribute="top" secondItem="4cQ-jj-Ws7" secondAttribute="bottom" constant="8" symbolic="YES" id="ia7-Vh-mKQ"/>
                             <constraint firstItem="0ni-bx-GnH" firstAttribute="bottom" secondItem="Djb-ko-YwX" secondAttribute="top" id="ueS-3T-DMB"/>
-                            <constraint firstItem="Xif-Hy-bRv" firstAttribute="top" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="8" symbolic="YES" id="x48-2s-KWD"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Sound Editor" image="wave" id="1sT-NX-Qmj"/>
                     <navigationItem key="navigationItem" id="MPF-uT-K3K"/>
                     <connections>
                         <outlet property="aLabel" destination="NDk-cv-Gan" id="fLS-LN-oVt"/>
@@ -188,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2058.75" y="0.0"/>
+            <point key="canvasLocation" x="810" y="0.0"/>
         </scene>
         <!--SoundList-->
         <scene sceneID="maA-kX-rTG">
@@ -202,41 +191,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Is2-th-bLd" userLabel="paneStack">
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0D-Nw-nRk" userLabel="pane">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebF-RC-eJq" userLabel="pane2">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="ebF-RC-eJq" firstAttribute="width" secondItem="C0D-Nw-nRk" secondAttribute="width" id="PrJ-eD-w8H"/>
-                                </constraints>
-                            </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57i-Ex-CMz"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Is2-th-bLd" firstAttribute="top" secondItem="p4E-H5-aV6" secondAttribute="bottom" id="3TK-0T-K9U"/>
-                            <constraint firstItem="Is2-th-bLd" firstAttribute="leading" secondItem="tgu-d9-txd" secondAttribute="leading" id="Iu5-f1-HQk"/>
-                            <constraint firstAttribute="trailing" secondItem="Is2-th-bLd" secondAttribute="trailing" id="OUj-u5-079"/>
-                            <constraint firstItem="fPs-82-IGb" firstAttribute="top" secondItem="Is2-th-bLd" secondAttribute="bottom" id="xYf-O7-MHJ"/>
+                            <constraint firstItem="57i-Ex-CMz" firstAttribute="leading" secondItem="tgu-d9-txd" secondAttribute="leading" id="0xb-VH-SRT"/>
+                            <constraint firstItem="57i-Ex-CMz" firstAttribute="top" secondItem="p4E-H5-aV6" secondAttribute="bottom" id="9hE-cN-gHL"/>
+                            <constraint firstItem="57i-Ex-CMz" firstAttribute="bottom" secondItem="fPs-82-IGb" secondAttribute="top" id="aEs-Od-Or0"/>
+                            <constraint firstAttribute="trailing" secondItem="57i-Ex-CMz" secondAttribute="trailing" id="uBM-6w-7eV"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Sound List" image="sound" id="Cwl-KT-f9P"/>
                     <connections>
-                        <outlet property="pane" destination="C0D-Nw-nRk" id="Ibs-ir-jJX"/>
-                        <outlet property="pane2" destination="ebF-RC-eJq" id="kMK-dE-51n"/>
+                        <outlet property="scrollView" destination="57i-Ex-CMz" id="23s-yW-RF3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vd4-Ms-y5c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2880" y="0.0"/>
+            <point key="canvasLocation" x="1498" y="0.0"/>
         </scene>
         <!--Settings-->
         <scene sceneID="CBW-lM-rJQ">
             <objects>
-                <viewController id="oHk-or-Vfj" sceneMemberID="viewController">
+                <viewController title="Settings" id="oHk-or-Vfj" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SGA-xK-YRr"/>
                         <viewControllerLayoutGuide type="bottom" id="5wJ-n5-my1"/>
@@ -263,33 +240,17 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
+                        <outlet property="delegate" destination="RsI-CM-PQa" id="kGs-XL-gWS"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="IFF-qo-OZc" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="2st-IQ-ROb"/>
+                        <segue destination="DM8-FW-JRw" kind="relationship" relationship="viewControllers" id="Z0Y-gd-zye"/>
                         <segue destination="oHk-or-Vfj" kind="relationship" relationship="viewControllers" id="nga-o5-ymN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+                <customObject id="RsI-CM-PQa" customClass="EditorTabDelegate" customModule="nine_1" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
-        <!--Sound Editor-->
-        <scene sceneID="jVK-Hj-L1H">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IFF-qo-OZc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Sound Editor" image="sound" id="cPa-gy-q4n"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nAj-dl-VaT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="FHb-gN-pCK"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ogK-lx-IJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1419.375" y="0.0"/>
         </scene>
     </scenes>
     <resources>
@@ -297,5 +258,6 @@
         <image name="menu" width="30" height="30"/>
         <image name="pad" width="30" height="30"/>
         <image name="sound" width="30" height="30"/>
+        <image name="wave" width="32" height="32"/>
     </resources>
 </document>

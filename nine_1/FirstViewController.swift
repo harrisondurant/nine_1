@@ -28,10 +28,6 @@ class FirstViewController: UIViewController {
     //@IBOutlet weak var delayTime: AKPropertySlider!
     //@IBOutlet weak var delayFeedback: AKPropertySlider!
     
-    let soundBoard = SoundBoard(["dirtykick.wav","clic.wav","bell.wav",
-                                "clap.wav","snare.wav","tom.wav",
-                                "congo.wav","shaker.wav","weird.wav"])
-    
     // var delay: AKVariableDelay?
     //delay = AKVariableDelay(soundBoard)
     //delayTime.callback = adjustDelayTime
@@ -44,8 +40,17 @@ class FirstViewController: UIViewController {
                    button3,button4,button5,
                    button6,button7,button8]
         
-        AudioKit.output = soundBoard
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        AudioKit.output = SoundBoard.getInstance()
         AudioKit.start()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        AudioKit.stop()
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,15 +59,13 @@ class FirstViewController: UIViewController {
     
     @IBAction func padDown(_ sender: UIButton) {
         let id = Int(sender.restorationIdentifier!)!
-        //print("Playing sound: \(id)")
-        soundBoard.play(id)
+        SoundBoard.play(id)
         updateImages(selectedIdx: id)
     }
     
     @IBAction func padUp(_ sender: UIButton) {
         let id = Int(sender.restorationIdentifier!)!
-        //print("Stopping sound: \(id)")
-        soundBoard.stop(id)
+        SoundBoard.stop(id)
     }
     
     func updateImages(selectedIdx: Int) {
