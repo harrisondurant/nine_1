@@ -14,7 +14,6 @@ class SoundListView: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     var loaded = false
     
-    var soundBoard: SoundBoard!
     var newSoundIdx: Int = -1
     
     var x: CGFloat = 0.0
@@ -27,7 +26,6 @@ class SoundListView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        soundBoard = SoundBoard.getInstance()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,7 +34,7 @@ class SoundListView: UIViewController {
             setupSoundList()
             loaded = true
         }
-        updateList(soundBoard.selectedSound.soundListIndex)
+        updateList(SoundBoard.getSelectedIndex())
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -50,7 +48,7 @@ class SoundListView: UIViewController {
     
     func setupSoundList() {
         
-        let soundList = soundBoard.soundList
+        let soundList = SoundBoard.getSoundList()
         let numSounds = soundList.count
         
         scrollView.contentInset = UIEdgeInsets(top: 5.0, left: 0.0, bottom: 5.0, right: 0.0)

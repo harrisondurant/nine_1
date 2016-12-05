@@ -41,13 +41,5 @@ class SecondViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if(segue.identifier == "changeSound") {
-//            
-//            let dest = segue.destination as! SoundListView
-//            dest.editorView = self
-//            
-//        }
-//    }
 }
 

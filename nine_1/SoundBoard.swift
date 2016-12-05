@@ -13,7 +13,7 @@ class SoundBoard: AKMixer {
     private static var instance =
                 SoundBoard(fileIDs: [13,38,5,28,26,6,19,44,32], startIndex: 6)
     
-     var soundList = ["(Kick) FSMH1.mp3","[Snr] BEAUTIFUL MORNIN.mp3",
+    private static var soundList = ["(Kick) FSMH1.mp3","[Snr] BEAUTIFUL MORNIN.mp3",
                      "[VOX] BBB4U Quickie.mp3","100.mp3","Air_funk.mp3",
                      "airhorn.mp3","another-one.mp3","BALTIMOR.mp3",
                      "Caddy_ki.mp3","chop1.mp3","chop2.mp3","chop4.mp3",
@@ -27,23 +27,41 @@ class SoundBoard: AKMixer {
                      "milli.mp3","montana.mp3","Ohiokic.mp3","Perfect.mp3",
                      "s3.mp3","shout.mp3","Sound192.mp3","tightsnare.mp3","zap1.mp3"]
     
+    var FXMap: [Int: (Double,Double)] = [:]
+    
     var selectedSound: Sound!
     var selectedIdx: Int!
     
     var pads: [Sound] = []
     
-    init(fileIDs: [Int], startIndex: Int) {
+    init(fileIDs: [Int], startIndex: Int, _ fx: [Int: (Double,Double)] = [:]) {
         super.init()
+        
+        var count = 0
+        
+        if(fx.count > 0) {
+            self.FXMap = fx
+        }
+        
         for idx in fileIDs {
-            let path = soundList[idx]
+            let path = SoundBoard.soundList[idx]
             do {
                 let sound = try Sound(path,idx)
+                if(FXMap[count] != nil) {
+                    let rate = FXMap[count]!.0
+                    let pan = FXMap[count]!.1
+                    sound.setRate(rate)
+                    sound.setPan(pan)
+                }
                 pads.append(sound)
+                
                 self.connect(sound)
             } catch {
                 print("Sound file \(path) not found")
             }
+            count += 1
         }
+        
         selectedIdx = startIndex
         selectedSound = pads[selectedIdx]
     }
@@ -53,37 +71,22 @@ class SoundBoard: AKMixer {
     }
     
     static func updateSounds(soundIdx: Int) -> SoundBoard {
-        
-        //let fileName = instance.soundList[soundIdx]
-        //instance.pads[instance.selectedIdx].replace(fileName,soundIdx)
+        if(instance.FXMap[instance.selectedIdx] != nil) {
+            instance.FXMap.removeValue(forKey: instance.selectedIdx)
+        }
         
         var new_IDs = instance.getPads()
         new_IDs[instance.selectedIdx] = soundIdx
         
-        instance = SoundBoard(fileIDs: new_IDs, startIndex: instance.selectedIdx)
+        instance = SoundBoard(fileIDs: new_IDs,
+                              startIndex: instance.selectedIdx, instance.FXMap)
         return instance
-        
-//        let soundName = soundList[selectedSound.soundListIndex]
-//        let newSoundName = soundList[soundIdx]
-//        
-//        print("at changesound")
-//        print("currentSound = \(soundName)")
-//        print("newsound = \(newSoundName)")
-//        do {
-//            let sound = try Sound(soundName,soundIdx)
-//            pads[selectedIdx] = sound
-//            selectedSound = sound
-//        } catch {
-//            print("Error loading sound file")
-//        }
-        
     }
     
     static func updateFX(rate: Double, pan: Double) -> SoundBoard {
+        instance.FXMap[instance.selectedIdx] = (rate,pan)
         instance = SoundBoard(fileIDs:
-            instance.getPads(), startIndex: instance.selectedIdx)
-        instance.selectedSound.output.rate = rate
-        instance.selectedSound.input.pan = pan
+            instance.getPads(), startIndex: instance.selectedIdx, instance.FXMap)
         return instance
     }
     
@@ -118,5 +121,13 @@ class SoundBoard: AKMixer {
     
     static func getSoundName() -> String {
         return instance.selectedSound.name
+    }
+    
+    static func getSelectedIndex() -> Int {
+        return instance.selectedSound.soundListIndex
+    }
+    
+    static func getSoundList() -> [String] {
+        return soundList
     }
 }

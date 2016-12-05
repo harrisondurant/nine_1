@@ -42,51 +42,12 @@ class Sound: AKMixer {
         canTrigger = true
     }
     
-    func replace(_ fileName: String, _ idx: Int) {
-        do {
-            let soundFile = try AKAudioFile(readFileName: fileName)
-            input = try AKAudioPlayer(file: soundFile)
-            output = AKVariSpeed(input)
-            connect(self.output)
-            soundListIndex = idx
-        } catch {
-            print("Exception occurred")
-        }
+    func setRate(_ rate: Double) {
+        output.rate = rate
+    }
+    
+    func setPan(_ pan: Double) {
+        input.pan = pan
     }
 }
-
-//class Sound: AKAudioPlayer {
-//
-//    var name: String = ""
-//    var soundListIndex: Int = -1
-//    var canTrigger: Bool = true
-//
-//    init(file audioFile: AKAudioFile) throws {
-//        try super.init(file: audioFile)
-//    }
-//
-//    convenience init(_ fileName: String, _ idx: Int) throws {
-//        var sound: AKAudioFile!
-//        do {
-//            try sound = AKAudioFile(readFileName: fileName)
-//        } catch {
-//            print("Exception occurred")
-//        }
-//        try self.init(file: sound)
-//        self.name = fileName
-//        self.soundListIndex = idx
-//    }
-//
-//    func playSound() {
-//        if(self.isPlaying) {
-//            self.stop()
-//        }
-//        self.canTrigger = false
-//        self.play()
-//    }
-//
-//    func stopSound() {
-//        self.canTrigger = true
-//    }
-//}
 
