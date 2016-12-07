@@ -14,7 +14,7 @@ class SoundListView: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     var loaded = false
     
-    var newSoundIdx: Int = -1
+    var newSoundIdx: Int!
     
     var x: CGFloat = 0.0
     var offsetY: CGFloat = 0.0
@@ -34,7 +34,8 @@ class SoundListView: UIViewController {
             setupSoundList()
             loaded = true
         }
-        updateList(SoundBoard.getSelectedIndex())
+        newSoundIdx = SoundBoard.getSelectedIndex()
+        updateList(newSoundIdx)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

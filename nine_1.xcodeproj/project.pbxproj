@@ -54,7 +54,6 @@
 		81179EBB1DF4CFA9002F72ED /* tightsnare.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81179E931DF4CFA8002F72ED /* tightsnare.mp3 */; };
 		81179EBC1DF4CFA9002F72ED /* zap1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81179E941DF4CFA8002F72ED /* zap1.mp3 */; };
 		81179EC21DF4F2E3002F72ED /* EditorTabDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81179EC11DF4F2E3002F72ED /* EditorTabDelegate.swift */; };
-		81179EC61DF51835002F72ED /* AudioBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81179EC51DF51835002F72ED /* AudioBus.swift */; };
 		8176F2671DECBEBA0057FF39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176F2661DECBEBA0057FF39 /* AppDelegate.swift */; };
 		8176F2691DECBEBA0057FF39 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176F2681DECBEBA0057FF39 /* FirstViewController.swift */; };
 		8176F26B1DECBEBA0057FF39 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176F26A1DECBEBA0057FF39 /* SecondViewController.swift */; };
@@ -65,6 +64,8 @@
 		8176F27D1DECBEF30057FF39 /* SoundBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8176F27B1DECBEF30057FF39 /* SoundBoard.swift */; };
 		8176F2831DECBF1D0057FF39 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8176F27E1DECBF020057FF39 /* AudioKit.framework */; };
 		8176F2841DECBF1D0057FF39 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8176F27E1DECBF020057FF39 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8185E8D51DF89B1A0041F46C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185E8D41DF89B1A0041F46C /* SettingsViewController.swift */; };
+		8185E8D71DF89ED70041F46C /* FXChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8185E8D61DF89ED70041F46C /* FXChain.swift */; };
 		81C58FC91DEF5549007C4C57 /* SoundListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C58FC81DEF5549007C4C57 /* SoundListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -130,7 +131,6 @@
 		81179E931DF4CFA8002F72ED /* tightsnare.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tightsnare.mp3; sourceTree = "<group>"; };
 		81179E941DF4CFA8002F72ED /* zap1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zap1.mp3; sourceTree = "<group>"; };
 		81179EC11DF4F2E3002F72ED /* EditorTabDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorTabDelegate.swift; sourceTree = "<group>"; };
-		81179EC51DF51835002F72ED /* AudioBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioBus.swift; sourceTree = "<group>"; };
 		8176F2631DECBEBA0057FF39 /* nine_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nine_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8176F2661DECBEBA0057FF39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8176F2681DECBEBA0057FF39 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +142,8 @@
 		8176F27A1DECBEF30057FF39 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		8176F27B1DECBEF30057FF39 /* SoundBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundBoard.swift; sourceTree = "<group>"; };
 		8176F27E1DECBF020057FF39 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		8185E8D41DF89B1A0041F46C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8185E8D61DF89ED70041F46C /* FXChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FXChain.swift; sourceTree = "<group>"; };
 		81C58FC81DEF5549007C4C57 /* SoundListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,7 +191,8 @@
 				8176F2741DECBEBA0057FF39 /* Info.plist */,
 				81C58FC81DEF5549007C4C57 /* SoundListView.swift */,
 				81179EC11DF4F2E3002F72ED /* EditorTabDelegate.swift */,
-				81179EC51DF51835002F72ED /* AudioBus.swift */,
+				8185E8D41DF89B1A0041F46C /* SettingsViewController.swift */,
+				8185E8D61DF89ED70041F46C /* FXChain.swift */,
 			);
 			path = nine_1;
 			sourceTree = "<group>";
@@ -368,12 +371,13 @@
 			files = (
 				8176F26B1DECBEBA0057FF39 /* SecondViewController.swift in Sources */,
 				8176F2671DECBEBA0057FF39 /* AppDelegate.swift in Sources */,
+				8185E8D71DF89ED70041F46C /* FXChain.swift in Sources */,
 				81179EC21DF4F2E3002F72ED /* EditorTabDelegate.swift in Sources */,
 				81C58FC91DEF5549007C4C57 /* SoundListView.swift in Sources */,
-				81179EC61DF51835002F72ED /* AudioBus.swift in Sources */,
 				8176F2691DECBEBA0057FF39 /* FirstViewController.swift in Sources */,
 				8176F27D1DECBEF30057FF39 /* SoundBoard.swift in Sources */,
 				8176F27C1DECBEF30057FF39 /* Sound.swift in Sources */,
+				8185E8D51DF89B1A0041F46C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
