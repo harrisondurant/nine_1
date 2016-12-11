@@ -46,8 +46,8 @@ class Sound: AKMixer {
         output.rate = rate
     }
     
-    func setPan(_ pan: Double) {
-        input.pan = pan
+    func setVolume(_ volume: Double) {
+        input.volume = volume
     }
 }
 

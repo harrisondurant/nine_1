@@ -11,10 +11,12 @@ import AudioKit
 
 class SecondViewController: UIViewController {
 
-    @IBOutlet weak var aLabel: UILabel!
+    @IBOutlet weak var waveformImage: UIImageView!
+    @IBOutlet weak var soundNameLabel: UILabel!
+    
     
     @IBOutlet weak var playbackSlider: AKPropertySlider!
-    @IBOutlet weak var panSlider: AKPropertySlider!
+    @IBOutlet weak var volumeSlider: AKPropertySlider!
     
     var soundBoard: SoundBoard!
     
@@ -26,15 +28,16 @@ class SecondViewController: UIViewController {
         super.viewDidAppear(animated)
         
         playbackSlider.value = SoundBoard.getPlayback()
-        panSlider.value = SoundBoard.getPan()
+        volumeSlider.value = SoundBoard.getVolume()
         
-        aLabel.text = "Current Sound: \(SoundBoard.getSoundName())"
+        soundNameLabel.text = "Current Sound: \(SoundBoard.getSoundName())"
+        waveformImage.image = SoundBoard.getCurrentWaveForm()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         AudioKit.output = SoundBoard.updateFX(rate: playbackSlider.value,
-                                            pan: panSlider.value)
+                                            volume: volumeSlider.value)
     }
     
     override func didReceiveMemoryWarning() {

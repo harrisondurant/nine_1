@@ -28,6 +28,7 @@ class SoundBoard: AKMixer {
                      "s3.mp3","shout.mp3","Sound192.mp3","tightsnare.mp3","zap1.mp3"]
     
     var FXMap: [Int: (Double,Double)] = [:]
+    var FXChainParam: [Double] = []
     
     var output: FXChain!
     
@@ -46,6 +47,10 @@ class SoundBoard: AKMixer {
             self.FXMap = fx
         }
         
+        if(updates.count > 0) {
+            self.FXChainParam = updates
+        }
+        
         print(fileIDs.count)
         
         for idx in fileIDs {
@@ -54,9 +59,9 @@ class SoundBoard: AKMixer {
                 let sound = try Sound(path,idx)
                 if(FXMap[count] != nil) {
                     let rate = FXMap[count]!.0
-                    let pan = FXMap[count]!.1
+                    let volume = FXMap[count]!.1
                     sound.setRate(rate)
-                    sound.setPan(pan)
+                    sound.setVolume(volume)
                 }
                 pads.append(sound)
                 
@@ -86,20 +91,22 @@ class SoundBoard: AKMixer {
         new_IDs[instance.selectedIdx] = soundIdx
         
         instance = SoundBoard(fileIDs: new_IDs,
-                              startIndex: instance.selectedIdx, instance.FXMap)
+                              startIndex: instance.selectedIdx,
+                              instance.FXMap,
+                              instance.FXChainParam)
         return instance.output
     }
     
-    static func updateFX(rate: Double, pan: Double) -> FXChain {
-        instance.FXMap[instance.selectedIdx] = (rate,pan)
+    static func updateFX(rate: Double, volume: Double) -> FXChain {
+        instance.FXMap[instance.selectedIdx] = (rate,volume)
         instance = SoundBoard(fileIDs:
-            instance.getPads(), startIndex: instance.selectedIdx, instance.FXMap)
+            instance.getPads(), startIndex: instance.selectedIdx,
+                                instance.FXMap,
+                                instance.FXChainParam)
         return instance.output
     }
     
     static func updateFXChain(_ updates: [Double]) -> FXChain {
-        print("At update fxchain")
-        print(instance.selectedIdx)
         instance = SoundBoard(fileIDs: instance.getPads(),
                               startIndex: instance.selectedIdx,
                               instance.FXMap, updates)
@@ -132,12 +139,14 @@ class SoundBoard: AKMixer {
         return instance.selectedSound.output.rate
     }
     
-    static func getPan() -> Double {
-        return instance.selectedSound.input.pan
+    static func getVolume() -> Double {
+        return instance.selectedSound.input.volume
     }
     
     static func getSoundName() -> String {
-        return instance.selectedSound.name
+        let str = instance.selectedSound.name
+        let endIdx = str.index(str.endIndex, offsetBy: -5)
+        return str[str.startIndex...endIdx]
     }
     
     static func getSelectedIndex() -> Int {
@@ -146,5 +155,11 @@ class SoundBoard: AKMixer {
     
     static func getSoundList() -> [String] {
         return soundList
+    }
+    
+    static func getCurrentWaveForm() -> UIImage {
+        let soundName = getSoundName()
+        let image = UIImage(named: soundName)
+        return image!
     }
 }
