@@ -11,6 +11,7 @@ import AudioKit
 
 class FirstViewController: UIViewController {
     
+    // drumpad buttons in main view
     @IBOutlet weak var button0: UIButton!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -25,30 +26,31 @@ class FirstViewController: UIViewController {
     
     var buttons: [UIButton] = []
     
-    //@IBOutlet weak var delayTime: AKPropertySlider!
-    //@IBOutlet weak var delayFeedback: AKPropertySlider!
-    
-    // var delay: AKVariableDelay?
-    //delay = AKVariableDelay(soundBoard)
-    //delayTime.callback = adjustDelayTime
-    //delayFeedback.callback = adjustDelayFeedback
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // initalize button list
         buttons = [button0,button1,button2,
                    button3,button4,button5,
                    button6,button7,button8]
         
-        updateImages(selectedIdx: 6) //default start pad
+        // set the default selected drumpad to bottom left
+        updateImages(selectedIdx: 6)
+        
+        // set audio output to static instance of SoundBoard class
         AudioKit.output = SoundBoard.getInstance()
     }
     
+    // when main view appears, start audio engine
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         AudioKit.start()
     }
     
+    /* 
+    when main view disappears, no audio will be playing.
+    temporarily stop audio engine 
+    */
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         AudioKit.stop()
@@ -58,35 +60,30 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    /* 
+    button press event handler:
+    using storyboard assigned button identifiers,
+    play corresponding sound, and update the view 
+    */
     @IBAction func padDown(_ sender: UIButton) {
         let id = Int(sender.restorationIdentifier!)!
         SoundBoard.play(id)
         updateImages(selectedIdx: id)
     }
     
-    @IBAction func padUp(_ sender: UIButton) {
-        let id = Int(sender.restorationIdentifier!)!
-        SoundBoard.stop(id)
-    }
-    
+    /* 
+    set the image for the currently selected drum pad to
+    'selectedPad', set all others to 'defaultPad'. called when
+    a button is pressed 
+    */
     func updateImages(selectedIdx: Int) {
         for i in 0..<numPads {
             if(i == selectedIdx) {
-                buttons[i].setImage(#imageLiteral(resourceName: "selected"),for: .normal)
+                buttons[i].setImage(#imageLiteral(resourceName: "selectedPad"),for: .normal)
             } else {
-                buttons[i].setImage(#imageLiteral(resourceName: "drumpad"),for: .normal)
+                buttons[i].setImage(#imageLiteral(resourceName: "defaultPad"),for: .normal)
             }
         }
     }
-    
-
-//    func adjustDelayTime(_ time: Double) {
-//        delay?.time = Double(time)
-//    }
-//
-//    func adjustDelayFeedback(_ feedback: Double) {
-//        delay?.feedback = Double(feedback)
-//    }
-
 }
 

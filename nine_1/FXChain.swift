@@ -11,10 +11,12 @@ import AudioKit
 
 class FXChain: AKMixer {
     
+    // SoundBoard will input signal to FXChain
     var input: SoundBoard!
     
+    // FX nodes
+    var bitcrush: AKBitCrusher!
     var reverb: AKReverb!
-    var delay: AKDelay!
     var HPF: AKHighPassFilter!
     var LPF: AKLowPassFilter!
     
@@ -23,13 +25,16 @@ class FXChain: AKMixer {
         super.init()
         input = mixer
         
+        // set up each FX node
         setupFX()
         executeUpdates(updates: updates)
     }
     
+    // Update each FX node given supplied updates
     func executeUpdates(updates: [Double]) {
-        let functions = [setVerb, setDelayTime,
-                         setDelayFeedback, setLPFCutoff,
+        let functions = [toggleBitCrush,
+                         setVerb, setBitDepth,
+                         setSampleRate, setLPFCutoff,
                          setHPFCutoff]
         
         if(updates.count != 0) {
@@ -41,43 +46,49 @@ class FXChain: AKMixer {
         }
     }
     
+    /*
+    Chain each FX node to the input in sequence.
+    Set initial values.
+    */
     func setupFX() {
-        print("\n\n\nHERE")
-        reverb = AKReverb(input)
+        bitcrush = AKBitCrusher(input)
+        toggleBitCrush(1.0)
+        setBitDepth(6.0)
+        setSampleRate(10000.0)
+        reverb = AKReverb(bitcrush)
         setVerb(0.0)
-        delay = AKDelay(reverb)
-        setDelayTime(0.01)
-        setDelayFeedback(0.0)
-        HPF = AKHighPassFilter(delay)
+        HPF = AKHighPassFilter(reverb)
         setHPFCutoff(0.0)
         LPF = AKLowPassFilter(HPF)
         setLPFCutoff(8000.0)
         self.connect(LPF)
     }
     
+    func toggleBitCrush(_ setting: Double) {
+        if(setting == 0.0) {
+            bitcrush.start()
+        } else {
+            bitcrush.stop()
+        }
+    }
+    
     func setVerb(_ verb: Double) {
-        print("At setverb - newvalue = \(verb)")
         reverb.dryWetMix = verb
     }
     
-    func setDelayTime(_ time: Double) {
-        print("At setdTime - newvalue = \(time)")
-        delay.time = time
+    func setBitDepth(_ depth: Double) {
+        bitcrush.bitDepth = depth
     }
     
-    func setDelayFeedback(_ feedback: Double) {
-        print("At setdfeedback - newvalue = \(feedback)")
-        delay.dryWetMix = feedback
-        delay.feedback = feedback
+    func setSampleRate(_ sampRate: Double) {
+        bitcrush.sampleRate = sampRate
     }
     
     func setHPFCutoff(_ cutoff: Double) {
-        print("At HPFCutoff - newvalue = \(cutoff)")
         HPF.cutoffFrequency = cutoff
     }
     
     func setLPFCutoff(_ cutoff: Double) {
-        print("At LPFCutoff - newvalue = \(cutoff)\n\n\n")
         LPF.cutoffFrequency = cutoff
     }
 }

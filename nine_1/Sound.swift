@@ -10,44 +10,86 @@ import AudioKit
 
 class Sound: AKMixer {
     
-    var name: String = ""
-    var soundListIndex: Int = -1
-    var canTrigger: Bool = true
-    var input: AKAudioPlayer!
-    var output: AKVariSpeed!
+    // sound name
+    private var name: String = ""
+    
+    // sound waveform
+    private var waveform: UIImage!
+    
+    // index of sound in SoundBoard.soundList
+    private var soundListIndex: Int = -1
+    
+    /* audio player to play sound file.
+    CustomAudioPlayer is nearly identical to AudioKit
+    AKAudioPlayer with a few minor changes */
+    private var input: CustomAudioPlayer!
+
+    /* output of Sound will be a varispeed node,
+    allowing for change of audio file playback rate */
+    private var output: AKVariSpeed!
     
     init(_ fileName: String, _ idx: Int) throws {
         super.init()
         do {
+            // create audio player with audio file.
             let soundFile = try AKAudioFile(readFileName: fileName)
-            self.input = try AKAudioPlayer(file: soundFile)
+            self.input = try CustomAudioPlayer(file: soundFile)
         } catch {
             print("Exception occurred")
         }
-        self.name = fileName
+        
+        // trim '.mp3' from fileName
+        let endIdx = fileName.index(fileName.endIndex, offsetBy: -5)
+        self.name = fileName[fileName.startIndex...endIdx]
+        
+        // get and set waveform image
+        self.waveform = UIImage(named: self.name)
         self.soundListIndex = idx
+        
+        // connect input audio player to AKVariSpeed output
         self.output = AKVariSpeed(self.input)
         self.connect(self.output)
     }
     
-    func playSound() {
-        if(input.isPlaying) {
-            input.stop()
-        }
-        canTrigger = false
+    // play soun
+    func play() {
         input.play()
     }
     
-    func stopSound() {
-        canTrigger = true
-    }
-    
-    func setRate(_ rate: Double) {
+    // set sound playback rate
+    func setPlaybackRate(_ rate: Double) {
         output.rate = rate
     }
     
+    // return sound playback rate
+    func getPlaybackRate() -> Double {
+        return output.rate
+    }
+    
+    // set sound volume
     func setVolume(_ volume: Double) {
         input.volume = volume
     }
+    
+    // get sound volume
+    func getVolume() -> Double {
+        return input.volume
+    }
+    
+    // get sound name
+    func getName() -> String {
+        return name
+    }
+    
+    // get sound waveform image
+    func getWaveform() -> UIImage {
+        return waveform
+    }
+    
+    // get sound soundList index
+    func getSoundListIndex() -> Int {
+        return soundListIndex
+    }
+    
 }
 
